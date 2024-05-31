@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shape Generator</title>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+
+<head>
+<body>
+<p>Enter a number below to generate a shape:</p>
+<input type="text" id="InputNum">
+<button onclick="generateShape()">Generate</button>
+<div id="shapeOutput"></div>
+
+<script>
+function getNumber() {
+    var input = document.getElementById("InputNum").value.trim(); //got help from uncle for .trim() method, returns new string
+    var num = parseInt(input);
+    if (isNaN(num)) {
+        alert("Please enter a valid number");
+        return null;
+    }
+    return num;
+}
+
+function generateShape() {
+    var num = getNumber();
+    if (num === null) {
+        return;
+    }
+
+    var output = document.getElementById("shapeOutput");
+    output.innerHTML = "";
+
+    var shapeText = "";
+    if (num % 2 === 0) {
+        for (var i = 1; i <= num; i++) {
+            for (var j = 0; j < i; j++) {
+                shapeText += i + " ";
+            }
+            shapeText += "<br>";
+        }
+    } else {
+        for (var i = 1; i <= num; i++) {
+            for (var j = 0; j < num; j++) {
+                shapeText += i + " ";
+            }
+            shapeText += "<br>";
+        }
+    }
+
+    output.innerHTML = shapeText;
+}
+</script>
+
+</head>
+</body>
+</html>

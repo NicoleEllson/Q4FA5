@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts List</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+
+<head>
+<body>
+<h2>Contacts List</h2>
+<div id="contactsList"></div>
+<input type="text" id="nameInput" placeholder="Enter name">
+<button onclick="addContact()">Add</button>
+<button onclick="removeContact()">Remove</button>
+
+<script>
+var contacts = [];
+
+function displayContacts() {
+    var contactsListDiv = document.getElementById("contactsList");
+    contactsListDiv.innerHTML = "<h3>Contacts:</h3>";
+    if (contacts.length === 0) {
+        contactsListDiv.innerHTML += "<p>No contacts yet</p>";
+    } else {
+        contactsListDiv.innerHTML += "<ul>";
+        for (var i = 0; i < contacts.length; i++) {
+            contactsListDiv.innerHTML += "<li>" + contacts[i] + "</li>";
+        }
+        contactsListDiv.innerHTML += "</ul>";
+    }
+}
+
+function contactOutput() {
+            document.getElementById("displayContact").innerText = callBook.join(" ");
+        }
+
+function addContact() {
+    var personName = document.getElementById("contacts").value.trim();
+    if (personName !== "")} {
+    if (contacts.length < 7) {
+        contacts.push(personName);
+
+    } else {
+        contacts.push(personName);
+        contacts.shift();
+    }
+    contactOutput();
+    document.getElementById("contacts").value = "";  
+}
+function removeContact() {
+    if (contacts.length === 0) {
+        alert("No contacts to remove.");
+        return;
+    }
+    contacts.pop(); 
+    displayContacts();
+}
+</script>
+
+</head>
+</body>
+</html>
